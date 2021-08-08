@@ -1,6 +1,8 @@
 import SearchArea from "./SearchArea";
 import React from "react";
 import ReactDOM from "react-dom";
+import { Router } from "@reach/router";
+import WatchArea from "./WatchArea";
 
 const App = () => {
   return (
@@ -8,8 +10,10 @@ const App = () => {
       <header>
         <a href="/">Youtube-Clon</a>
       </header>
-      <SearchArea />
-      
+      <Router>
+        <SearchArea path="/" />
+        <WatchArea path="/watch/:id" />
+      </Router>
     </div>
   );
 };

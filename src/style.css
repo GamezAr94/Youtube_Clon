@@ -86,6 +86,10 @@
     display: flex;
     padding: 25px 0;
     border-bottom: #d8dee6 2px solid;
+    text-decoration: none;
+  }
+  .video-container:hover{
+    text-decoration: underline;
   }
   .video-image{
     margin:0 20px 0 10px;
@@ -110,4 +114,34 @@
   
   .video-info p{
     color: gray;
+  }
+
+  .watch-area{
+    background-color: #ececec;
+    width: 1100px;
+    margin: 0 auto 1.5rem auto;
+    padding: 1rem;
+    border-radius: 9px;
+  }
+
+  .player iframe{
+    width: 1050px;
+    height: 450px;
+  }
+
+  .watch-area .video-status{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .watch-area .channel-name{
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .watch-area h1{
+    text-align: center;
+    color: #ad343e;
+    font-size: 1.8rem;
+    margin: 5px 0;
   }
