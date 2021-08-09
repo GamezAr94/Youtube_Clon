@@ -1,5 +1,8 @@
 import axios from "axios";
 import React from "react";
+import * as AppConstant from "./AppConstant";
+import ErrorBoundary from "./ErrorBoundary";
+import FormatNumber from "./FormatNumber";
 
 class WatchArea extends React.Component {
   constructor() {
@@ -10,7 +13,7 @@ class WatchArea extends React.Component {
   componentDidMount() {
     axios
       .get(
-        `https://youtube.googleapis.com/youtube/v3/videos?part=snippet,statistics,status,player&key=${process.env.API_KEY}&id=${this.props.id}`
+        `${AppConstant.VIDEO_URL}&id=${this.props.id}`
       )
       .then((res) => {
         const item = res.data.items[0];
@@ -44,8 +47,8 @@ class WatchArea extends React.Component {
         </div>
         <h1>{title}</h1>
         <div className="video-status">
-          <div className="">{views} Views 👀</div>
-          <div className="">{like} Likes 👍</div>
+          <div className=""><FormatNumber number={views} /> Views 👀</div>
+          <div className=""><FormatNumber number={like} /> Likes 👍</div>
         </div>
         <div className="channel-name">{channel} Channel</div>
         <p>{description}</p>
@@ -54,4 +57,10 @@ class WatchArea extends React.Component {
   }
 }
 
-export default WatchArea;
+export default function WatchAreaWithErrorBoundary(props){
+  return(
+    <ErrorBoundary>
+      <WatchArea {...props}/>
+    </ErrorBoundary>
+  )
+}
