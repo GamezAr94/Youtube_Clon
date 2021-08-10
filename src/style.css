@@ -54,7 +54,8 @@
     display: block;
   }
   
-  .search-area input {
+  .search-area input,
+  .search-area select {
     margin-bottom: 1.9rem;
     font-size: 1.2rem;
     height: 1.9rem;
@@ -144,4 +145,9 @@
     color: #ad343e;
     font-size: 1.8rem;
     margin: 5px 0;
+  }
+
+  .search-area input[type="checkbox"]{
+    width: unset;
+    height: unset;
   }
