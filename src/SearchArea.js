@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
-import Results from "./Results";
 import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import Results from "./Results";
 import * as AppConsttant from "./AppConstant";
 import useDropdown from "./useDropdown";
+import ColorContext from "./ColorContext";
 
 const SearchArea = () => {
+  const [themeColor, setThemeColor] = useContext(ColorContext);
   const [keyword, setKeyword] = useState("budgies");
   const [videos, setVideos] = useState([]);
   const orderList = ["date", "relevance", "rating", "title", "viewCount"];
@@ -12,7 +14,7 @@ const SearchArea = () => {
 
   const [safeSearch, SafesearchDropdown] = useDropdown("Safe Search", "none", ["moderate", "none", "strict"])
 
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(true);
   const [advancedParams, setAdvancedParams] = useState(``);
 
  useEffect(()=>{
@@ -61,10 +63,20 @@ const SearchArea = () => {
             <div>
               <OrderDropdown />
               <SafesearchDropdown />
+              <label htmlFor="themeColor">
+                Theme Color
+                <select value={themeColor} onChange={(e) => setThemeColor(e.target.value)} onBlur={(e)=> setThemeColor(e.target.value)}>
+                  <option value="#ad343e"> Dark Red</option>
+                  <option value="darkblue"> Dark Blue</option>
+                  <option value="green"> Green</option>
+                  <option value="aqua"> Aqua</option>
+
+                </select>
+              </label>
             </div> : null
         }
 
-        <button type="submit">Submit</button>
+        <button style={{backgroundColor: themeColor}}>Submit</button>
       </form>
       <Results videos={videos} />
     </div>

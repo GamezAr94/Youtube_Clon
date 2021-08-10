@@ -3,6 +3,7 @@ import React from "react";
 import * as AppConstant from "./AppConstant";
 import ErrorBoundary from "./ErrorBoundary";
 import FormatNumber from "./FormatNumber";
+import ColorContext from "./ColorContext";
 
 class WatchArea extends React.Component {
   constructor() {
@@ -51,16 +52,25 @@ class WatchArea extends React.Component {
           <div className=""><FormatNumber number={like} /> Likes 👍</div>
         </div>
         <div className="channel-name">{channel} Channel</div>
+        <ColorContext.Consumer>
+          {
+            ([themeColor]) => (
+              <button style={{backgroundColor:themeColor}}>
+                Watch on Youtube.
+              </button>
+            )
+          }
+        </ColorContext.Consumer>
         <p>{description}</p>
       </div>
     );
   }
 }
 
-export default function WatchAreaWithErrorBoundary(props){
-  return(
+export default function WatchAreaWithErrorBoundary(props) {
+  return (
     <ErrorBoundary>
-      <WatchArea {...props}/>
+      <WatchArea {...props} />
     </ErrorBoundary>
   )
 }
