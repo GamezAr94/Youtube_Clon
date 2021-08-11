@@ -63,7 +63,8 @@
   }
   
   .search-area button,
-  .watch-area button {
+  .watch-area button,
+  #modal button {
     margin: 0 auto;
     display: block;
     padding: 5px 25px;
@@ -77,7 +78,6 @@
 
   .search-result{
     background-color: #f3f3f3;
-    padding: 15px;
     border-radius: 9px;
     margin: 1.5rem auto;
     min-width: 23rem;
@@ -86,7 +86,7 @@
   .video-container{
     width: 100%;
     display: flex;
-    padding: 25px 0;
+    padding: 25px 15px;
     border-bottom: #d8dee6 2px solid;
     text-decoration: none;
   }
@@ -151,4 +151,72 @@
   .search-area input[type="checkbox"]{
     width: unset;
     height: unset;
+  }
+
+  #modal {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #modal:empty {
+    display: none;
+  }
+  
+  #modal > div {
+    background-color: white;
+    max-width: 500px;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  #modal .btn-green {
+    background-color: green;
+  }
+  
+  #modal .buttons button {
+    display: inline-block;
+    margin: 0.5rem;
+  }
+
+  .loader {
+    text-align: center;
+  }
+  
+  .loader {
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    border: 8px solid #e6c521;
+    border-radius: 50%;
+    border-top: 8px solid #ececec;
+    -webkit-animation: spin 0.5s linear infinite;
+    animation: spin 0.5s linear infinite;
+  }
+  
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }

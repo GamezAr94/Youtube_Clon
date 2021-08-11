@@ -1,10 +1,11 @@
 import React from "react";
 import Video from "./Video";
 
-const Results = ({ videos }) => {
+const Results = ({ videos, loading }) => {
   return (
     <div className="search-result">
-      {videos.map((video) => {
+      {loading ? ( <div className="loader"></div>):
+      videos.map((video) => {
         return (
           <Video
             key={video.id.videoId}
