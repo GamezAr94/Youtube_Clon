@@ -13,7 +13,14 @@ The user can watch videos using this app or also select if the user want to be r
 - axios
 - @reach/router
 
-## technical Info
+## Technical Info
 - **npm run dev** to run the application
 - Create an **.env** file with your private API generated from Youtube and store it in a API_KEY variable to be able to search videos, for example *API_KEY=**API_GENERATED_HERE***
+
+## Images 
+### Search/Results Window
+![image](https://user-images.githubusercontent.com/46079765/129084313-65e5984e-fcaa-45d3-81db-96fd3325777b.png)
+
+### Watch Window
+![image](https://user-images.githubusercontent.com/46079765/129084420-e4695226-555b-4f3c-8950-083dd979898c.png)
 
